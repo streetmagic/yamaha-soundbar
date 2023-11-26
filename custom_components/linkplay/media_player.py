@@ -802,11 +802,11 @@ class LinkPlayDevice(MediaPlayerEntity):
             if self._playing_spotify and self._state == STATE_IDLE:
                 self._source = None
 
-            if self._spotify_paused_at != None:
-                if utcnow() >= (self._spotify_paused_at + SPOTIFY_PAUSED_TIMEOUT):
-                    # Prevent sticking in Pause mode for a long time (Spotify doesn't have a stop button on the app)
-                    await self.async_media_stop()
-                    return
+#            if self._spotify_paused_at != None:
+#                if utcnow() >= (self._spotify_paused_at + SPOTIFY_PAUSED_TIMEOUT):
+#                    # Prevent sticking in Pause mode for a long time (Spotify doesn't have a stop button on the app)
+#                    await self.async_media_stop()
+#                    return
 
             if self._player_statdata['mode'] in ['11', '16'] and len(self._trackq) <= 0:
                 if int(self._player_statdata['curpos']) > 6000 and self._state == STATE_PLAYING:
